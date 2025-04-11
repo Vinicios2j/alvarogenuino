@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Alvaro Genuino</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <img id="logo" src="imgs/logo.jpg" alt="Logo da Loja" class="logo" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Formulário de Login -->
+  <main class="main-area">
+    <div id="form-container" class="login-container">
+      <h1>Login</h1>
+      <form class="login-form" onsubmit="return verificarLogin(event)">
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required />
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required />
+
+        <button type="submit">Entrar</button>
+      </form>
+      <p id="mensagem-login" class="mensagem-erro"></p>
+    </div>
+
+    <!-- Botão de Criar Orçamento -->
+<div id="orcamento-container" class="orcamento-box" style="display: none;">
+    <button class="btn-orcamento" onclick="mostrarFormulario()">Criar Orçamento</button>
+  </div>
+
+  <div class="barra-pesquisa" id="barPes" style="display: none;">
+    <input type="text" id="input-pesquisa" placeholder="Buscar por nome do orçamento ou cliente..." oninput="filtrarOrcamentos()" />
+  </div>
+
+  
+  <!-- Formulário de Orçamento -->
+  <div id="form-orcamento" class="form-orcamento" style="display: none;">
+    <h2>Novo Orçamento</h2>
+    <form onsubmit="criarOrcamento(event)">
+      <input type="text" placeholder="Nome do orçamento" id="nomeOrcamento" required />
+      <input type="text" placeholder="Nome do cliente" id="nomeCliente" required />
+      <textarea placeholder="Descrição do orçamento" id="descricao" required></textarea>
+      <input type="date" id="dataInicio" required />
+      <input type="date" id="dataFim" required />
+      <select id="status" required>
+        <option value="Pendente">Pendente</option>
+        <option value="Em processo">Em processo</option>
+        <option value="Finalizado">Finalizado</option>
+      </select>
+      <textarea placeholder="Lista de produtos" id="produtos" required></textarea>
+      <button type="submit">Salvar Orçamento</button>
+    </form>
+  </div>
+  
+  <!-- Lista de Orçamentos -->
+  <div id="lista-orcamentos" class="lista-orcamentos"></div>
+  
+  </main>
+
+  <script src="scritps/login.js"></script>
+</body>
+</html>
